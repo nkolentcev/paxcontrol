@@ -18,6 +18,14 @@ type CreateUserRequest struct {
 	PersonalNumber int    `json:"personalNumber"`
 }
 
+type AddBoardRequest struct {
+	Name      string `json:"name"`
+	Booking   string `json:"booking"`
+	JDate     string `json:"jdate"`
+	TypePasss string `json:"type_pass"`
+	Zone      int    `json:"zone"`
+}
+
 func NewUser(name, uschema string, pn int) *User {
 	if uschema == "" {
 		uschema = "33"
@@ -32,25 +40,26 @@ func NewUser(name, uschema string, pn int) *User {
 }
 
 type BoardingPass struct {
-	Fmt      string `json:"fmt"`
-	Name     string `json:"name"`
-	Booking  string `json:"booking"`
-	JDate    string `json:"jdate"`
-	TypePass string `json:"tp"`   //Y- эконом J-бизнес F-первый
-	Zone     int    `json:"zone"` //0 - общая. 1-чистая
-	Checkin1 int    `json:"ch1"`
-	Checkin2 int    `json:"ch2"`
+	ID        int       `json:"id"`
+	Fmt       string    `json:"fmt"`
+	Name      string    `json:"name"`
+	Booking   string    `json:"booking"`
+	JDate     string    `json:"jdate"`
+	TypePass  string    `json:"tp"`   //Y- эконом J-бизнес F-первый
+	Zone      int       `json:"zone"` //0 - общая. 1-чистая
+	Check1    int       `json:"check1"`
+	Check2    int       `json:"check2"`
+	CreatedAt time.Time `json:"createdAt"`
 }
 
 func NewBoardingPass(name, booking, jdate, tp string) *BoardingPass {
 	return &BoardingPass{
-		Fmt:      "M1",
-		Name:     name,
-		Booking:  booking,
-		JDate:    jdate,
-		TypePass: tp,
-		Zone:     0,
-		Checkin1: 0,
-		Checkin2: 0,
+		Fmt:       "M1",
+		Name:      name,
+		Booking:   booking,
+		JDate:     jdate,
+		TypePass:  tp,
+		Zone:      0,
+		CreatedAt: time.Now().UTC(),
 	}
 }
