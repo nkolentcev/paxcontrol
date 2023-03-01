@@ -7,9 +7,15 @@ environment:
   sdk: '>=2.19.2 <3.0.0'
 
 dependencies:
+  barcode_scan2: ^4.2.3
+  code_scan: ^0.4.8
   flutter:
     sdk: flutter
-
+  flutter_zxing: ^1.1.0
+  http: ^0.13.5
+  pin_code_fields: ^7.4.0
+  zxing_lib: ^0.9.0
+ 
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -17,3 +23,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/
