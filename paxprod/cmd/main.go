@@ -1,13 +1,14 @@
 package main
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"github.com/gofiber/fiber/v2"
+	"github.com/nkolentcev/paxcontrol/paxprod/database"
+)
 
 func main() {
+	database.ConnectDB()
 	app := fiber.New()
-
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Старт")
-	})
+	setupRoutes(app)
 
 	app.Listen(":8000")
 }
