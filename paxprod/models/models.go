@@ -12,11 +12,13 @@ type User struct {
 
 type BoardingPass struct {
 	gorm.Model
-	Name     string `json:"name" gorm:"text;not null;default:null"`
-	Booking  string `json:"booking" gorm:"text;not null;default:null"`
-	JDate    string `json:"jdate" gorm:"text;not null;default:null"`
-	TypePass string `json:"type_pass" gorm:"text;not null;default:null"`
-	Zone     int    `json:"zone" gorm:"int:not null;default:0"`
-	Check1   int    `json:"check1" gorm:"int:not null;default:0"`
-	Check2   int    `json:"check2" gorm:"int:not null;default:0"`
+	Name         string `json:"name" gorm:"text;not null;default:null"`
+	Booking      string `json:"booking" gorm:"text;not null;default:null"`
+	FlyingFromTo string `json:"flying_from_to" gorm:"text;not null;default:null"`
+	FlightNum    string `json:"flyight_number" gorm:"text;not null;default:null"`
+	JDate        string `json:"jdate" gorm:"text;not null;default:null"`
+	TypePass     string `json:"type_pass" gorm:"text;not null;default:null"`
+	Zone         int    `json:"zone" gorm:"int:not null;default:0"`
+	Check1       int    `json:"check1" gorm:"int:not null;default:0"`
+	Check2       int    `json:"check2" gorm:"int:not null;default:0"`
 }
